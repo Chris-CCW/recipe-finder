@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Recipe database">
+<meta name="author" content="Chris Hawkins">
+<link rel="shortcut icon" href="img/chef-icon.jpg" type="image/x-icon">
+<title>Recipe finder - simple recipe database</title>
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+<link href="css/additional.css" rel="stylesheet">
+<script type="text/javascript" src="js/addrecipe.js"></script>
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg bg-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="index.html"><img
+				src="img/chef-icon.jpg" alt="Icon of a chefs hat" /> Recipe Finder</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="nav-link"
+						href="index.html">Home <span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="search.html">View
+							recipes</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<!-- Page Features -->
+		<div class="row">
+			<br>
+			<div class="col-9">
+				<br> <br>
+				<h2>Add a recipe</h2>
+				<br>
+				<form id="recipeform" class="form-horizontal" action="#" method="POST">
+					<fieldset>
+
+						<!-- Form Name -->
+						<!-- Text input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="name">Recipe
+								name</label>
+							<div class="col-md-4">
+								<input id="name" name="name" type="text"
+									placeholder="e.g. Spaghetti bolognese"
+									class="form-control input-md" required="">
+
+							</div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="time">Time to
+								make</label>
+							<div class="col-md-4">
+								<input id="time" name="time" type="text"
+									placeholder="e.g. 30 minutes" class="form-control input-md">
+
+							</div>
+						</div>
+
+						<!-- Select Basic -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="difficulty">Difficulty</label>
+							<div class="col-md-4">
+								<select id="difficulty" name="difficulty" class="form-control">
+									<option value="Easy">Easy</option>
+									<option value="Medium">Medium</option>
+									<option value="Hard">Hard</option>
+								</select>
+							</div>
+						</div>
+
+						<!-- Textarea -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="method">Instructions</label>
+							<div class="col-md-8">
+								<textarea class="form-control" rows="4" id="method" name="method" placeholder="Enter your recipe here"></textarea>
+							</div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="ingredients">Ingredients</label>
+							<div class="col-md-8">
+								<input id="ingredients" name="ingredients" type="text"
+									placeholder="500g chicken thighs, 50g flaked almonds"
+									class="form-control input-md" required=""> <span
+									class="help-block">Separate the ingredients with commas</span>
+							</div>
+						</div>
+
+						<!-- Prepended text-->
+						<div class="form-row">
+
+							<div class="container">
+								<div class="row justify-content-center">
+
+									<!--  Nutritional information -->
+
+
+									<div class="input-group col-md-2 mt-2">
+										<div class="input-group-prepend">
+											<label class="input-group-text" for="kcal">kcal</label>
+										</div>
+										<input type="text" class="form-control" placeholder=""
+											id="kcal" name="kcal">
+									</div>
+
+									<div class="input-group col-md-2 mt-2">
+										<div class="input-group-prepend">
+											<label class="input-group-text" for="fat">fat</label>
+										</div>
+										<input type="text" class="form-control" placeholder=""
+											id="fat" name="fat">
+									</div>
+
+									<div class="input-group col-md-3 mt-2">
+										<div class="input-group-prepend">
+											<label class="input-group-text" for="saturates">saturates</label>
+										</div>
+										<input type="text" class="form-control" placeholder="" id="saturates" name="saturates">
+									</div>
+
+									<div class="input-group col-md-2 mt-2">
+										<div class="input-group-prepend">
+											<label class="input-group-text" for="carbs">carbs</label>
+										</div>
+										<input type="text" class="form-control" placeholder="" id="carbs" name="carbs">
+									</div>
+
+									<div class="input-group col-md-3 mt-2">
+										<div class="input-group-prepend">
+											<label class="input-group-text" for="sugars">sugars</label>
+										</div>
+										<input type="text" class="form-control" placeholder="" id="sugars" name="sugars">
+									</div>
+
+									<div class="input-group col-md-2 mt-2">
+										<div class="input-group-prepend">
+											<label class="input-group-text" for="fibre">fibre</label>
+										</div>
+										<input type="text" class="form-control" placeholder="" id="fibre" name="fibre">
+									</div>
+
+									<div class="input-group col-md-3 mt-2">
+										<div class="input-group-prepend">
+											<label class="input-group-text" for="protein">protein</label>
+										</div>
+										<input type="text" class="form-control" placeholder="" id="protein" name="protein">
+									</div>
+
+									<div class="input-group col-md-2 mt-2">
+										<div class="input-group-prepend">
+											<label class="input-group-text" for="salt">salt</label>
+										</div>
+										<input type="text" class="form-control" placeholder="" id="salt" name="salt">
+									</div>
+								</div>
+							</div>
+							<!--  end of nutritional information -->
+						</div>
+						<br> <br>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</fieldset>
+				</form>
+				<br>
+			</div>
+		</div>
+		<!-- /.row -->
+<pre id="output"></pre>
+	</div>
+	<!-- /.container -->
+
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; Chris Hawkins 2019</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

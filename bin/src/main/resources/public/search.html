@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Search for a recipe">
+    <meta name="author" content="Chris Hawkins">
+    <link rel="shortcut icon" href="img/chef-icon.jpg" type="image/x-icon">
+    <title>Recipe finder - Search recipes</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+    <link href="css/additional.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="img/chef-icon.jpg" alt="Icon of a chefs hat" /> Recipe Finder</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">View recipes</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Search table -->
+        <div class="container search-table">
+            <div class="search-box">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Filter by recipe</h5>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="i.e. pancakes">
+
+                    </div>
+                </div>
+            </div>
+            <div class="search-list">
+                <table class="table table-striped" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>Skill level</th>
+                            <th>Recipe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        <script>
+                            var allData = [];
+                            // load json data
+                            function importJSON() {
+                                var request = new XMLHttpRequest();
+                                request.open('GET', 'http://localhost:8080/api/recipes/');
+                                request.setRequestHeader('Content-Type', 'application/json');
+                                request.setRequestHeader('Access-Control-Allow-Origin', '*');
+                                request.responseType = 'json';
+                                request.send();
+                                request.onload = function() {
+                                    allData = request.response;
+
+                                    var table = document.getElementById("myTable");
+
+                                    for (var i = 0; i < allData.length; i++) {
+                                        var row = table.insertRow(-1);
+                                        var cell1 = row.insertCell(0);
+                                        var cell2 = row.insertCell(1);
+
+                                        cell1.innerHTML = allData[i].difficulty;
+                                        cell2.innerHTML = '<span onclick="location.href=\'recipe.html?name=' + allData[i].name + '&ingredients=' + allData[i].ingredients + '&salt=' + allData[i].salt + '&protein=' + allData[i].protein + '&fibre=' + allData[i].fibre + '&sugars=' + allData[i].sugars + '&carbs=' + allData[i].carbs + '&saturates=' + allData[i].saturates + '&fat=' + allData[i].fat + '&kcals=' + allData[i].kcals + '&time=' + allData[i].time + '&difficulty=' + allData[i].difficulty + '\';">' + allData[i].name + '</span>';
+                                    }
+                                }
+                            }
+
+                            importJSON();
+
+                            // search
+                            function myFunction() {
+                                // Declare variables 
+                                var input, filter, table, tr, td, i, txtValue;
+                                input = document.getElementById("myInput");
+                                filter = input.value.toUpperCase();
+                                table = document.getElementById("myTable");
+                                tr = table.getElementsByTagName("tr");
+
+                                // Loop through all table rows, and hide those who don't match the search query
+                                for (i = 0; i < tr.length; i++) {
+                                    td = tr[i].getElementsByTagName("td")[1];
+                                    if (td) {
+                                        txtValue = td.textContent || td.innerText;
+                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                            tr[i].style.display = "";
+                                        } else {
+                                            tr[i].style.display = "none";
+                                        }
+                                    }
+                                }
+                            }
+
+                        </script>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        <!-- Page Features -->
+        <div class="row text-center">
+
+
+
+        </div>
+        <!-- /.row -->
+        <br> <!-- <br> to make table sit above the fixed footer  -->
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark fixed-bottom">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Chris Hawkins 2019</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
