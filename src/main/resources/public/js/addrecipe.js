@@ -1,11 +1,13 @@
 (function() {
-	function toJSONString( form ) {
+	function toJSONString(form) {
 		var obj = {};
 		var elements = form.querySelectorAll( "input, select, textarea" );
 		for( var i = 0; i < elements.length; ++i ) {
 			var element = elements[i];
 			var name = element.name;
 			var value = element.value;
+            
+            value = value.replace(/\r?\n/g, '<br />');
 
 			if( name ) {
 				obj[ name ] = value;
@@ -21,10 +23,22 @@
 		form.addEventListener( "submit", function( e ) {
 			e.preventDefault();
 			var json = toJSONString( this );
-			output.innerHTML = json;
+            
+            xhr = new XMLHttpRequest();
+var url = "http://localhost:8080/api/recipes/";
+xhr.open("POST", url, true);
+xhr.setRequestHeader("Content-type", "application/json");
+xhr.onreadystatechange = function () { 
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        var json = JSON.parse(xhr.responseText);
+        console.log("http status 200")
+    }
+}
+
+xhr.send(json);
+window.location.href = 'index.html';            
 
 		}, false);
 
-	});
-
+	});    
 })();

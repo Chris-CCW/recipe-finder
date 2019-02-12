@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="Recipes">
 <meta name="author" content="Chris Hawkins">
-<link rel="shortcut icon" href="img/chef-icon.jpg" type="image/x-icon">
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 <title>Recipe finder - recipe</title>
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Great+Vibes'
-	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
 <link href="css/recipe.css" rel="stylesheet">
 
 </head>
@@ -35,25 +31,32 @@
 		const recipeTime = urlParams.get('time')
 		const recipeDifficulty = urlParams.get('difficulty')
 		const recipeMethod = urlParams.get('method')
+        
+        //convert ingredients to string
+        let list = recipeIngredients.toString();   
+        list = list.split(',');
+        
 	</script>
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg bg-light fixed-top">
 		<div class="container">
 			<a class="navbar-brand" href="index.html"><img
-				src="img/chef-icon.jpg" alt="Icon of a chefs hat" /> Recipe Finder</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarResponsive" aria-controls="navbarResponsive"
-				aria-expanded="false" aria-label="Toggle navigation">
+				src="img/chef-hat.png" alt="Icon of a chefs hat" /> Recipe Finder</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link"
-						href="index.html">Home <span class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="search.html">View
-							recipes</a></li>
+					<li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home </a>
+                    </li>
+					<li class="nav-item">
+                        <a class="nav-link" href="search.html">View recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_recipe.html">Add recipes</a>
+                    </li>
 				</ul>
 			</div>
 		</div>
@@ -67,9 +70,19 @@
 			<div class="col-lg-3">
 				<h1 class="my-4">Ingredients</h1>
 				<div class="list-group" id="ingredientlist">
+                    <ul id="ul-test"></ul>
 					<script>
-						document.getElementById("ingredientlist").innerHTML = recipeIngredients;
-					</script>
+                        
+ul = document.getElementById("ul-test");
+
+for (var i = 0, len = list.length; i < len; i++) {
+    var li = document.createElement("li");
+    var text = document.createTextNode(list[i]);
+    li.appendChild(text);
+    ul.appendChild(li);
+}
+
+                    </script>
 				</div>
 			</div>
 			<!-- /.col-lg-3 -->
