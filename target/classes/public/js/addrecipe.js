@@ -1,8 +1,8 @@
-(function() {
+(function () {
 	function toJSONString(form) {
 		var obj = {};
-		var elements = form.querySelectorAll( "input, select, textarea" );
-		for( var i = 0; i < elements.length; ++i ) {
+		var elements = form.querySelectorAll("input, select, textarea");
+		for (var i = 0; i < elements.length; ++i ) {
 			var element = elements[i];
 			var name = element.name;
 			var value = element.value;
@@ -19,7 +19,6 @@
 
 	document.addEventListener( "DOMContentLoaded", function() {
 		var form = document.getElementById( "recipeform" );
-		var output = document.getElementById( "output" );
 		form.addEventListener( "submit", function( e ) {
 			e.preventDefault();
 			var json = toJSONString( this );
@@ -36,7 +35,7 @@ xhr.onreadystatechange = function () {
 }
 
 xhr.send(json);
-window.location.href = 'index.html';            
+// window.location.href = 'index.html';            
 
 		}, false);
 
