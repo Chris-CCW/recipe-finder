@@ -35,7 +35,7 @@ xhr.onreadystatechange = function () {
 }
 
 xhr.send(json);
-// window.location.href = 'index.html';            
+window.location.href = 'index.html';            
 
 		}, false);
 

@@ -1,0 +1,5 @@
+com\qa\hawkins\chris\recipefinder\RecipeFinderApplication.class
+com\qa\hawkins\chris\recipefinder\model\DataModel.class
+com\qa\hawkins\chris\recipefinder\controller\Controller.class
+com\qa\hawkins\chris\recipefinder\repository\recipeRepository.class
+com\qa\hawkins\chris\recipefinder\exception\ResourceNotFoundException.class
