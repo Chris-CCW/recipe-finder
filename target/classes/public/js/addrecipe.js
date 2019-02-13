@@ -24,7 +24,7 @@
 			var json = toJSONString( this );
             
             xhr = new XMLHttpRequest();
-var url = "http://localhost:8080/api/recipes/";
+var url = "/api/recipes/";
 xhr.open("POST", url, true);
 xhr.setRequestHeader("Content-type", "application/json");
 xhr.onreadystatechange = function () { 
