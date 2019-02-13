@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,6 +40,28 @@
 
     <!-- Page Content -->
     <div class="container">
+        <br><br>
+        <!-- Peppers -->
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-2 text-center">
+                <a href="#" onclick="difficultyFilter('Easy')">
+                    <img src="img/easy.png" alt="Easy recipes">
+                    <h5>Easy recipes</h5>
+                </a>
+            </div>
+            <div class="col-12 col-md-auto text-center">
+                <a href="#" onclick="difficultyFilter('Medium')">
+                    <img src="img/medium.png" alt="Medium difficulty recipes">
+                    <h5>Medium difficulty</h5>
+                </a>
+            </div>
+            <div class="col col-lg-2 text-center">
+                <a href="#" onclick="difficultyFilter('Hard')">
+                    <img src="img/hard.png" alt="Hard recipes">
+                    <h5>Harder recipes</h5>
+                </a>
+            </div>
+        </div>
 
         <!-- Search table -->
         <div class="container search-table">
@@ -85,7 +108,7 @@
                                         var cell2 = row.insertCell(1);
 
                                         cell1.innerHTML = allData[i].difficulty;
-                                        cell2.innerHTML = '<span title="Click to view this recipe" onclick="location.href=\'recipe.html?name=' + allData[i].name + '&ingredients=' + allData[i].ingredients + '&salt=' + allData[i].salt + '&protein=' + allData[i].protein + '&fibre=' + allData[i].fibre + '&sugars=' + allData[i].sugars + '&carbs=' + allData[i].carbs + '&saturates=' + allData[i].saturates + '&fat=' + allData[i].fat + '&method=' + allData[i].method + '&kcals=' + allData[i].kcals + '&time=' + allData[i].time +'&method=' + allData[i].method + '&difficulty=' + allData[i].difficulty + '\';">' + allData[i].name + '</span>';
+                                        cell2.innerHTML = '<span title="Click to view this recipe" onclick="location.href=\'recipe.html?name=' + allData[i].name + '&ingredients=' + allData[i].ingredients + '&salt=' + allData[i].salt + '&protein=' + allData[i].protein + '&fibre=' + allData[i].fibre + '&sugars=' + allData[i].sugars + '&carbs=' + allData[i].carbs + '&saturates=' + allData[i].saturates + '&fat=' + allData[i].fat + '&method=' + allData[i].method + '&kcals=' + allData[i].kcals + '&time=' + allData[i].time + '&method=' + allData[i].method + '&difficulty=' + allData[i].difficulty + '\';">' + allData[i].name + '</span>';
                                     }
                                 }
                             }
@@ -115,6 +138,30 @@
                                 }
                             }
 
+                            // Difficulty filter
+                            function difficultyFilter(difficulty) {
+                                 // Declare variables 
+                                var filter, table, tr, td, i, txtValue;
+//                                var input = "Easy";
+//                                PASS THIS AS A PARAMETER FROM ONCLICK
+                               filter = difficulty.toUpperCase();
+                                table = document.getElementById("myTable");
+                                tr = table.getElementsByTagName("tr");
+
+                                // Loop through all table rows, and hide those who don't match the difficulty level
+                                for (i = 0; i < tr.length; i++) {
+                                    td = tr[i].getElementsByTagName("td")[0];
+                                    if (td) {
+                                        txtValue = td.textContent || td.innerText;
+                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                            tr[i].style.display = "";
+                                        } else {
+                                            tr[i].style.display = "none";
+                                        }
+                                    }
+                                }
+                            }
+
                         </script>
 
 
@@ -124,12 +171,6 @@
             </div>
         </div>
 
-        <!-- Page Features -->
-        <div class="row text-center">
-
-
-
-        </div>
         <!-- /.row -->
         <br> <!-- <br> to make table sit above the fixed footer  -->
     </div>
