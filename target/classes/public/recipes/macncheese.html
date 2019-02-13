@@ -9,9 +9,10 @@
     <meta name="author" content="Chris Hawkins">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <title>Recipe finder - Mac n Cheese</title>
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link media="screen" href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-    <link href="../css/recipe.css" rel="stylesheet">
+    <link media="screen" href="../css/recipe.css" rel="stylesheet">
+    <link media="print" href="../css/print.css" rel="stylesheet">
 
 </head>
 
@@ -32,7 +33,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../search.html">View recipes</a>
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="../add_recipe.html">Add recipes</a>
                     </li>
                 </ul>
@@ -44,9 +45,12 @@
     <div class="container">
 
         <div class="row">
-
+            <div class="hiddenTitle">
+                <h1>Mac n Cheese</h1>
+            </div>
             <div class="col-lg-3">
-                <h1 class="my-4">Ingredients</h1>
+                <br>
+                <h2 class="my-4">Ingredients</h2>
                 <div class="list-group">
                     <ul>
                         <li>semi-skimmed milk 700ml</li>
@@ -73,10 +77,10 @@
 
                 <div class="card mt-4">
                     <div class="card-img-caption">
-                        <p class="card-text">
+                        <p class="card-text hideMe">
                             Mac n Cheese
                         </p>
-                        <img class="card-img-top img-fluid" src="../img/basildish-blur.jpg" alt="Chopping board">
+                        <img class="card-img-top img-fluid" src="../img/basildish-blur.jpg" alt="Plate of food">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">25 minutes</h3>
@@ -85,11 +89,14 @@
                         </h4>
                         <p class="card-text">Put the salsa ingredients in a bowl, season well and mix.</p>
                         <p class="card-text">Put the milk in a pan, season well and bring to a simmer. Add the macaroni and cook for 8-10 minutes or until the pasta is almost cooked. Stir in the soft cheese followed by the grated cheeses and stir until melted. Add a splash more milk if it looks a bit too thick. Taste and season again with pepper then serve the macaroni in bowls with some of the salsa spooned over.</p>
+                        <a onclick="window.print();">
+                            <img src="../img/printpage.png" width="36" height="36" alt="Print recipe">
+                        </a>
                     </div>
                 </div>
                 <!-- /.card -->
 
-                <div class="card card-outline-secondary my-4">
+                <div class="card card-outline-secondary my-4 hideMe">
                     <div class="card-header">
                         Nutritional information
                     </div>
@@ -154,20 +161,20 @@
 
             </div>
         </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Chris Hawkins 2019</p>
         </div>
         <!-- /.container -->
+    </footer>
 
-        <!-- Footer -->
-        <footer class="py-5 bg-dark">
-            <div class="container">
-                <p class="m-0 text-center text-white">Copyright &copy; Chris Hawkins 2019</p>
-            </div>
-            <!-- /.container -->
-        </footer>
-
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

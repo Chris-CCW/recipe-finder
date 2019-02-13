@@ -9,9 +9,10 @@
     <meta name="author" content="Chris Hawkins">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <title>Recipe finder - Easy Pancakes</title>
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link media="screen" href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-    <link href="../css/recipe.css" rel="stylesheet">
+    <link media="screen" href="../css/recipe.css" rel="stylesheet">
+    <link media="print" href="../css/print.css" rel="stylesheet">
 
 </head>
 
@@ -44,9 +45,12 @@
     <div class="container">
 
         <div class="row">
-
+            <div class="hiddenTitle">
+                <h1>Easy Pancakes</h1>
+            </div>
             <div class="col-lg-3">
-                <h1 class="my-4">Ingredients</h1>
+                <br>
+                <h2 class="my-4">Ingredients</h2>
                 <div class="list-group">
                     <ul>
                         <li>
@@ -73,7 +77,7 @@
 
                 <div class="card mt-4">
                     <div class="card-img-caption">
-                        <p class="card-text">
+                        <p class="card-text hideMe">
                             Easy Pancakes
                         </p>
                         <img class="card-img-top img-fluid" src="../img/basildish-blur.jpg" alt="Chopping board">
@@ -92,11 +96,14 @@
                             </p>
                             <p class="card-text">Serve with lemon wedges and caster sugar, or your favourite filling. Once cold, you can layer the pancakes between baking parchment, then wrap in cling film and freeze for up to 2 months.
                             </p>
+                            <a onclick="window.print();">
+                                <img src="../img/printpage.png" width="36" height="36" alt="Print recipe">
+                            </a>
                     </div>
                 </div>
                 <!-- /.card -->
 
-                <div class="card card-outline-secondary my-4">
+                <div class="card card-outline-secondary my-4 hideMe">
                     <div class="card-header">
                         Nutritional information <small>(per pancake)</small>
                     </div>

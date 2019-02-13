@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Recipes">
-<meta name="author" content="Chris Hawkins">
-<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-<title>Recipe finder - recipe</title>
-<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-<link href="css/recipe.css" rel="stylesheet">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Recipes">
+    <meta name="author" content="Chris Hawkins">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Recipe finder - recipe</title>
+    <link media="screen" href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+    <link media="screen" href="css/recipe.css" rel="stylesheet">
+    <link media="print" href="css/print.css" rel="stylesheet">
 </head>
 
 <body>
-	<!-- get the id from URL  -->
-	<script>
-		// Copy ID number to urlParams constant
+    <!-- get the id from URL  -->
+    <script>
+        // Copy ID number to urlParams constant
 		const urlParams = new URLSearchParams(location.search);
 		const recipeName = urlParams.get('name')
 		const recipeIngredients = urlParams.get('ingredients')
@@ -38,213 +39,232 @@
         
 	</script>
 
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg bg-light fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="index.html"><img
-				src="img/chef-hat.png" alt="Icon of a chefs hat" /> Recipe Finder</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="img/chef-hat.png" alt="Icon of a chefs hat" /> Recipe Finder</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
                         <a class="nav-link" href="index.html">Home </a>
                     </li>
-					<li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="search.html">View recipes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="add_recipe.html">Add recipes</a>
                     </li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-	<!-- Page Content -->
-	<div class="container">
+    <!-- Page Content -->
+    <div class="container">
 
-		<div class="row">
-
-			<div class="col-lg-3">
-				<h1 class="my-4">Ingredients</h1>
-				<div class="list-group" id="ingredientlist">
-                    <ul id="ul-test"></ul>
-					<script>
-                        
-ul = document.getElementById("ul-test");
-
-for (var i = 0, len = list.length; i < len; i++) {
-    var li = document.createElement("li");
-    var text = document.createTextNode(list[i]);
-    li.appendChild(text);
-    ul.appendChild(li);
-}
+        <div class="row">
+            <div class="hiddenTitle">
+                <h1 class="insertTitleHere">
+                    <script>
+                        document.getElementById("insertTitleHere").innerHTML = recipeName;
 
                     </script>
-				</div>
-			</div>
-			<!-- /.col-lg-3 -->
+                </h1>
+            </div>
+            <div class="col-lg-3">
+                <h1 class="my-4">Ingredients</h1>
+                <div class="list-group" id="ingredientlist">
+                    <ul id="ul-test"></ul>
+                    <script>
+                        ul = document.getElementById("ul-test");
 
-			<div class="col-lg-9">
+                        for (var i = 0, len = list.length; i < len; i++) {
+                            var li = document.createElement("li");
+                            var text = document.createTextNode(list[i]);
+                            li.appendChild(text);
+                            ul.appendChild(li);
+                        }
 
-				<div class="card mt-4">
-					<div class="card-img-caption">
-						<p class="card-text" id="RecipeTitle">
-							<script>
-								document.getElementById("RecipeTitle").innerHTML = recipeName;
-							</script>
-						</p>
-						<img class="card-img-top img-fluid"
-							src="img/ChoppingBoard_blur.jpg" alt="">
-					</div>
-					<div class="card-body">
-						<h3 class="card-title" id="prepTime">
-							<script>
-								document.getElementById("prepTime").innerHTML = recipeTime;
-							</script>
-						</h3>
-						<h4 id="difficulty">
-							<script>
-								document.getElementById("difficulty").innerHTML = recipeDifficulty;
-							</script>
-						</h4>
-						<p class="card-text" id="method">
-							<script>
-								document.getElementById("method").innerHTML = recipeMethod;
-							</script>
-						</p>
-					</div>
-				</div>
-				<!-- /.card -->
+                    </script>
+                </div>
+            </div>
+            <!-- /.col-lg-3 -->
 
-				<div class="card card-outline-secondary my-4">
-					<div class="card-header">Nutritional information</div>
+            <div class="col-lg-9">
 
-					<div class="card-group">
-						<div class="card">
-							<div class="card-body">
-								<h6 class="card-title">
-									<small class="text-muted">kcal</small>
-								</h6>
-								<p class="card-text" id="kcal">
-								<script>
-								document.getElementById("kcal").innerHTML = recipeKcals;
-							</script>
-								</p>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-body">
-								<h6 class="card-title text-muted">
-									<small class="text-muted">fat</small>
-								</h6>
-								<p class="card-text" id="fat">
-								<script>
-								document.getElementById("fat").innerHTML = recipeFat;
-							</script>
-								</p>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-body">
-								<h6 class="card-title text-muted">
-									<small class="text-muted">saturates</small>
-								</h6>
-								<p class="card-text" id="saturates">
-								<script>
-								document.getElementById("saturates").innerHTML = recipeSaturates;
-							</script>
-								</p>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-body">
-								<h6 class="card-title text-muted">
-									<small class="text-muted">carbs</small>
-								</h6>
-								<p class="card-text" id="carbs">
-								<script>
-								document.getElementById("carbs").innerHTML = recipeCarbs;
-							</script>
-								</p>
-							</div>
-						</div>
+                <div class="card mt-4">
+                    <div class="card-img-caption">
+                        <p class="card-text hideMe" id="RecipeTitle">
+                            <script>
+                                document.getElementById("RecipeTitle").innerHTML = recipeName;
 
-						<div class="card">
-							<div class="card-body">
-								<h6 class="card-title text-muted">
-									<small class="text-muted">sugars</small>
-								</h6>
-								<p class="card-text" id="sugars">
-								<script>
-								document.getElementById("sugars").innerHTML = recipeSugars;
-							</script>
-								</p>
-							</div>
-						</div>
+                            </script>
+                        </p>
+                        <img class="card-img-top img-fluid" src="img/basildish-blur.jpg" alt="">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title" id="prepTime">
+                            <script>
+                                document.getElementById("prepTime").innerHTML = recipeTime;
 
-						<div class="card">
-							<div class="card-body">
-								<h6 class="card-title text-muted">
-									<small class="text-muted">fibre</small>
-								</h6>
-								<p class="card-text" id="fibre">
-								<script>
-								document.getElementById("fibre").innerHTML = recipeFibre;
-							</script>
-								</p>
-							</div>
-						</div>
+                            </script>
+                        </h3>
+                        <h4 id="difficulty">
+                            <script>
+                                document.getElementById("difficulty").innerHTML = recipeDifficulty;
 
-						<div class="card">
-							<div class="card-body">
-								<h6 class="card-title text-muted">
-									<small class="text-muted">protein</small>
-								</h6>
-								<p class="card-text" id="protein">
-								<script>
-								document.getElementById("protein").innerHTML = recipeProtein;
-							</script>
-								</p>
-							</div>
-						</div>
+                            </script>
+                        </h4>
+                        <p class="card-text" id="method">
+                            <script>
+                                document.getElementById("method").innerHTML = recipeMethod;
 
-						<div class="card">
-							<div class="card-body">
-								<h6 class="card-title text-muted">
-									<small class="text-muted">salt</small>
-								</h6>
-								<p class="card-text" id="salt">
-								<script>
-								document.getElementById("salt").innerHTML = recipeSalt;
-							</script>
-								</p>
-							</div>
-						</div>
-					</div>
-					<!-- /.card -->
-				</div>
-				<!-- /.col-lg-9 -->
+                            </script>
+                        </p>
+                        <a onclick="window.print();">
+                            <img src="../img/printpage.png" width="36" height="36" alt="Print recipe">
+                        </a>
+                    </div>
+                </div>
+                <!-- /.card -->
 
-			</div>
-		</div>
-	</div>
-	<!-- /.container -->
+                <div class="card card-outline-secondary my-4 hideMe">
+                    <div class="card-header">Nutritional information</div>
 
-	<!-- Footer -->
-	<footer class="py-5 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Chris
-				Hawkins 2019</p>
-		</div>
-		<!-- /.container -->
-	</footer>
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">
+                                    <small class="text-muted">kcal</small>
+                                </h6>
+                                <p class="card-text" id="kcal">
+                                    <script>
+                                        document.getElementById("kcal").innerHTML = recipeKcals;
 
-	<!-- Bootstrap core JavaScript -->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                                    </script>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title text-muted">
+                                    <small class="text-muted">fat</small>
+                                </h6>
+                                <p class="card-text" id="fat">
+                                    <script>
+                                        document.getElementById("fat").innerHTML = recipeFat;
+
+                                    </script>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title text-muted">
+                                    <small class="text-muted">saturates</small>
+                                </h6>
+                                <p class="card-text" id="saturates">
+                                    <script>
+                                        document.getElementById("saturates").innerHTML = recipeSaturates;
+
+                                    </script>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title text-muted">
+                                    <small class="text-muted">carbs</small>
+                                </h6>
+                                <p class="card-text" id="carbs">
+                                    <script>
+                                        document.getElementById("carbs").innerHTML = recipeCarbs;
+
+                                    </script>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title text-muted">
+                                    <small class="text-muted">sugars</small>
+                                </h6>
+                                <p class="card-text" id="sugars">
+                                    <script>
+                                        document.getElementById("sugars").innerHTML = recipeSugars;
+
+                                    </script>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title text-muted">
+                                    <small class="text-muted">fibre</small>
+                                </h6>
+                                <p class="card-text" id="fibre">
+                                    <script>
+                                        document.getElementById("fibre").innerHTML = recipeFibre;
+
+                                    </script>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title text-muted">
+                                    <small class="text-muted">protein</small>
+                                </h6>
+                                <p class="card-text" id="protein">
+                                    <script>
+                                        document.getElementById("protein").innerHTML = recipeProtein;
+
+                                    </script>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title text-muted">
+                                    <small class="text-muted">salt</small>
+                                </h6>
+                                <p class="card-text" id="salt">
+                                    <script>
+                                        document.getElementById("salt").innerHTML = recipeSalt;
+
+                                    </script>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col-lg-9 -->
+
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Chris
+                Hawkins 2019</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

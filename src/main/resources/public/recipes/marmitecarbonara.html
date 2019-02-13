@@ -9,9 +9,10 @@
     <meta name="author" content="Chris Hawkins">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <title>Recipe finder - Marmite carbonara</title>
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link media="screen" href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-    <link href="../css/recipe.css" rel="stylesheet">
+    <link media="screen" href="../css/recipe.css" rel="stylesheet">
+    <link media="print" href="../css/print.css" rel="stylesheet">
 
 </head>
 
@@ -44,9 +45,12 @@
     <div class="container">
 
         <div class="row">
-
+            <div class="hiddenTitle">
+                <h1>Marmite Carbonara</h1>
+            </div>
             <div class="col-lg-3">
-                <h1 class="my-4">Ingredients</h1>
+                <br>
+                <h2 class="my-4">Ingredients</h2>
                 <div class="list-group">
                     <ul>
                         <li>
@@ -77,7 +81,7 @@
 
                 <div class="card mt-4">
                     <div class="card-img-caption">
-                        <p class="card-text">
+                        <p class="card-text hideMe">
                             Marmite carbonara
                         </p>
                         <img class="card-img-top img-fluid" src="../img/basildish-blur.jpg" alt="Chopping board">
@@ -92,11 +96,14 @@
                         <p class="card-text">Put the garlic and 2 tbsp olive oil in a cold frying pan, then bring to a medium heat and fry until the garlic is golden and crispy, then fish it out and discard.</p>
                         <p class="card-text">
                             Reserve a small cup of the pasta water then drain. Take the frying pan off the heat and tip in the pasta, followed by the Marmite mixture and a good splash of cooking water. Toss together until the pasta is glossy and evenly coated. Serve with plenty more grated parmesan and a sprinkling of parsley.</p>
+                        <a onclick="window.print();">
+                            <img src="../img/printpage.png" width="36" height="36" alt="Print recipe">
+                        </a>
                     </div>
                 </div>
                 <!-- /.card -->
 
-                <div class="card card-outline-secondary my-4">
+                <div class="card card-outline-secondary my-4 hideMe">
                     <div class="card-header">
                         Nutritional information
                     </div>
